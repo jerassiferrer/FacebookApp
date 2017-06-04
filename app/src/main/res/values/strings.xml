@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FacebookApp</string>
+    <string name="facebook_app_id">852559174917290</string>
+    <string name="fb_login_protocol_scheme">fb852559174917290</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
+</resources>
