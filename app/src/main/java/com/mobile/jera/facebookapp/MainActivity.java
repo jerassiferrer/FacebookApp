@@ -3,8 +3,6 @@ package com.mobile.jera.facebookapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -39,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         if(accessToken!=null){
             GraphRequestAsyncTask graphRequestAsyncTask = new GraphRequest(
                     accessToken,
-                    //AccessToken.getCurrentAccessToken(),
                     "/me/friends",
                     null,
                     HttpMethod.GET,

@@ -3,8 +3,6 @@ package com.mobile.jera.facebookapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,11 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by jera on 6/4/17.
@@ -75,7 +71,10 @@ public class FriendsList extends AppCompatActivity {
                 public void onClick(View v) {
                     int friendPosition=(int) v.getTag();
                     Log.d("FriendsListJSON:Click",friends.get(friendPosition)+idList.get(friendPosition));
-
+                    Intent intent = new Intent(FriendsList.this,FriendDetails.class);
+                    intent.putExtra("name", friends.get(friendPosition));
+                    intent.putExtra("id", idList.get(friendPosition));
+                    startActivity(intent);
                 }
             });
 
