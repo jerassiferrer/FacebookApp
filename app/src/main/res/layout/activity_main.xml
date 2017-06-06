@@ -21,4 +21,10 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The app will only work for registered test users, as the current status of the app with respect the Facebook SDK API Key."
+        />
+
 </android.support.constraint.ConstraintLayout>

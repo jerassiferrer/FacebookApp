@@ -2,7 +2,6 @@ package com.mobile.jera.facebookapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -37,8 +36,6 @@ public class FriendDetails extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String id = intent.getStringExtra("id");
-        URL imageURL = null;
-        final Bitmap bitmap = null;
         Bundle params = new Bundle();
         params.putString("fields", "id,about,birthday,gender,email,picture.type(large)");
         new GraphRequest(AccessToken.getCurrentAccessToken(), "/"+id, params, HttpMethod.GET,

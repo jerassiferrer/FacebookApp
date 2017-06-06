@@ -9,13 +9,11 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
-import com.facebook.GraphRequestAsyncTask;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setReadPermissions("user_friends");
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
         if(accessToken!=null){
-            GraphRequestAsyncTask graphRequestAsyncTask = new GraphRequest(
+            new GraphRequest(
                     accessToken,
                     "/me/friends",
                     null,
@@ -54,13 +52,11 @@ public class MainActivity extends AppCompatActivity {
                     }
             ).executeAsync();
         } else {
-            // Callback registration
             loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
                 public void onSuccess(LoginResult login_result) {
-                    GraphRequestAsyncTask graphRequestAsyncTask = new GraphRequest(
+                     new GraphRequest(
                             login_result.getAccessToken(),
-                            //AccessToken.getCurrentAccessToken(),
                             "/me/friends",
                             null,
                             HttpMethod.GET,
@@ -82,12 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onCancel() {
-                    // code for cancellation
                 }
 
                 @Override
                 public void onError(FacebookException exception) {
-                    //  code to handle error
                 }
             });
         }
@@ -103,16 +97,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        // Logs 'install' and 'app activate' App Events.
         AppEventsLogger.activateApp(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
-        // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
     }
 
